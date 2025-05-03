@@ -8,13 +8,13 @@ import { projectRoutes } from "./app/modules/projects/project.route";
 import { skillRoutes } from "./app/modules/skills/skill.routes";
 const app = express();
 
-app.use(express.json());
 app.use(
     cors({
         origin: ["http://localhost:3000", "https://jm-jubaer.vercel.app"],
         credentials: true,
     })
 );
+app.use(express.json());
 
 // routes =====
 app.use("/skills", skillRoutes);
