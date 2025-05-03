@@ -7,6 +7,7 @@ const getAllProjectsFromDb = async (query: Record<string, unknown>) => {
         .filter()
         .paginate()
         .sort()
+        .fields()
         .search(["techTitle", "technology", "features"]);
     const data = await projectQuery.queryModel;
     const meta = await projectQuery.countTotal();
@@ -16,4 +17,12 @@ const createProjectIntoDb = async (payload: TProject) => {
     const result = Project.create(payload);
     return result;
 };
-export const projectsServices = { getAllProjectsFromDb, createProjectIntoDb };
+const getSingleProjectFromDb = async (id: string) => {
+    const result = Project.findById(id);
+    return result;
+};
+export const projectsServices = {
+    getAllProjectsFromDb,
+    createProjectIntoDb,
+    getSingleProjectFromDb,
+};

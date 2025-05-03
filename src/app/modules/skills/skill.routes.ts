@@ -6,14 +6,14 @@ import {
 } from "./skill.validation";
 const router = express.Router();
 
-// router.post(
-//     "/orders",
-//     // auth('customer'),
-//     // validateRequest(createOrderValidationSchema),
-//     skillControllers.createOrder
-// );
+router.post(
+    "/create-skill",
+    // auth('customer'),
+    // validateRequest(createOrderValidationSchema),
+    skillControllers.createSkill
+);
 router.get(
-    "/skills",
+    "/",
     // auth('customer'),
     skillControllers.getAllSkills
 );

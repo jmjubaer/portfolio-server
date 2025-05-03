@@ -13,4 +13,9 @@ router.get(
     // auth('customer'),
     projectControllers.getAllProjects
 );
+router.get(
+    "/:id",
+    // auth('customer'),
+    projectControllers.getSingleProject
+);
 export const projectRoutes = router;

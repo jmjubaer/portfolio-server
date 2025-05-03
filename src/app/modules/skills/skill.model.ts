@@ -6,6 +6,7 @@ const skillSchema = new Schema<TSkill>(
         title: {
             type: String,
             required: true,
+            unique: true
         },
         image: {
             type: String,
