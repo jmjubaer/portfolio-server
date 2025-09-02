@@ -6,7 +6,7 @@ const skillSchema = new Schema<TSkill>(
         title: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
         },
         image: {
             type: String,
@@ -22,6 +22,15 @@ const skillSchema = new Schema<TSkill>(
         },
         totalProjects: {
             type: Number,
+            required: true,
+        },
+        category: {
+            type: String,
+            enum: ["Frontend", "Backend", "Database"],
+            required: true,
+        },
+        color: {
+            type: String,
             required: true,
         },
     },

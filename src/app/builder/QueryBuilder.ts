@@ -27,8 +27,6 @@ class QueryBuilder<T> {
     const queryObj = { ...this.query };
     const excludeField = [
       'searchTerm',
-      'minPrice',
-      'maxPrice',
       'sort',
       'limit',
       'page',

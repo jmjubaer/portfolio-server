@@ -8,6 +8,7 @@ import { TSkill } from "./skill.interface";
 // add order into database
 const createSkillIntoDb = async (payload: TSkill) => {
     try {
+       
         const result = await Skill.create(payload);
         return result;
     } catch (err: any) {
@@ -15,8 +16,12 @@ const createSkillIntoDb = async (payload: TSkill) => {
     }
 };
 
-const getAllSkillsFromDb = async () => {
-    const data = await Skill.find();
+const getAllSkillsFromDb = async (query: Record<string, unknown>) => {
+     const skillQuery = new QueryBuilder(Skill.find(), query)
+            .filter()
+            .fields()
+            .search(["title", "description", "category"]);
+    const data = await skillQuery.queryModel;
     return data;
 };
 

@@ -13,7 +13,7 @@ const createSkill = catchAsync(async (req, res) => {
 });
 
 const getAllSkills = catchAsync(async (req, res) => {
-    const result = await skillsServices.getAllSkillsFromDb();
+    const result = await skillsServices.getAllSkillsFromDb(req.query);
     sendResponse(res, {
         statusCode: 200,
         success: true,
@@ -24,5 +24,5 @@ const getAllSkills = catchAsync(async (req, res) => {
 
 export const skillControllers = {
     getAllSkills,
-    createSkill
+    createSkill,
 };
